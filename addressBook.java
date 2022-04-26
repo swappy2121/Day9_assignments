@@ -52,31 +52,53 @@ class AddressBook {
             }
         }
     }
+
+    // deleting a person
+    void deletePerson(String n) {
+        for (int i = 0; i < persons.size(); i++) {
+            PersonInfo p = (PersonInfo) persons.get(i);
+            if (n.equals(p.First_Name)) {
+                persons.remove(i);
+            }
+        }
+    }
 }
+
+
+
+
+
 
        public class addressBook {
 
-            public static void main(String[] args) {
-                AddressBook ab = new AddressBook();
-                String input, s;
-                int ch;
+        public static void main(String[] args) {
+            AddressBook ab = new AddressBook();
+            String input, s;
+            int ch;
 
-                while (true) {
-                    input = JOptionPane.showInputDialog("Enter 1 to Add\nEnter 2 to Search\nEnter 3 to Exit");
-                    ch = Integer.parseInt(input);
+            while (true) {
+                input = JOptionPane.showInputDialog("Enter 1 to Add\nEnter 2 to Search\nEnter 3 to Delete\nEnter 4 to Exit");
+                ch = Integer.parseInt(input);
 
 
-                    switch (ch) {
-                        case 1:
-                            ab.addPerson();
-                            break;
-                        case 2:
-                            s = JOptionPane.showInputDialog("Enter name to search:");
-                            ab.searchPerson(s);
-                            break;
-                        case 3:
-                            System.exit(0);
-                    }
+                switch (ch) {
+                    case 1:
+                        ab.addPerson();
+                        break;
+                    case 2:
+                        s = JOptionPane.showInputDialog("Enter name to search:");
+                        ab.searchPerson(s);
+                        break;
+                    case 3:
+                        s = JOptionPane.showInputDialog("Enter name to delete:");
+                        ab.deletePerson(s);
+                        break;
+                    case 4:
+                        System.exit(0);
                 }
             }
         }
+    }
+
+
+           
